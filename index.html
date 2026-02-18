@@ -5,17 +5,127 @@
 <title>Avinash Saini | Senior Android Engineer</title>
 
 <style>
-body{margin:0;font-family:system-ui;background:#f6f7fb;color:#111;}
-.container{max-width:1100px;margin:auto;padding:40px 20px;}
-.hero{display:flex;align-items:center;justify-content:space-between;padding:80px 0;}
-.hero img{width:300px;border-radius:20px;}
-h1{font-size:56px;margin:0}
-h2{margin-top:40px}
-.button{background:#3a6cff;color:white;padding:12px 20px;border-radius:8px;text-decoration:none;display:inline-block;margin-top:15px;}
-.stats{display:flex;gap:40px;margin:50px 0;font-size:22px;}
-.card{background:white;padding:25px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.08);margin:15px 0;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-.project img{width:100%;border-radius:12px;}
+
+body{
+margin:0;
+font-family:Inter,system-ui;
+background:#0f1115;
+color:white;
+}
+
+.container{
+max-width:1150px;
+margin:auto;
+padding:60px 24px;
+}
+
+/* HERO */
+
+.hero{
+display:flex;
+gap:60px;
+align-items:center;
+justify-content:space-between;
+padding-top:40px;
+flex-wrap:wrap;
+}
+
+.hero img{
+width:260px;
+border-radius:20px;
+box-shadow:0 30px 70px rgba(0,0,0,.6);
+}
+
+h1{
+font-size:58px;
+margin:0;
+letter-spacing:-1px;
+}
+
+.subtitle{
+color:#8aa2ff;
+font-weight:600;
+}
+
+.hero p{
+color:#a9b0c7;
+line-height:1.6;
+max-width:600px;
+}
+
+.button{
+background:#5b7cff;
+color:white;
+padding:12px 20px;
+border-radius:10px;
+text-decoration:none;
+display:inline-block;
+margin-top:20px;
+}
+
+/* SECTION */
+
+h2{
+margin-top:90px;
+margin-bottom:25px;
+font-size:32px;
+}
+
+/* CARDS */
+
+.card{
+background:#161a22;
+padding:28px;
+border-radius:18px;
+box-shadow:0 12px 40px rgba(0,0,0,.5);
+}
+
+/* SKILLS */
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+}
+
+.skill{
+background:#1f2431;
+padding:10px 16px;
+border-radius:999px;
+font-weight:600;
+font-size:14px;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;
+}
+
+/* PROJECT */
+
+.project img{
+width:100%;
+border-radius:12px;
+margin-bottom:10px;
+}
+
+.project h3{
+margin:10px 0 6px;
+}
+
+.project p{
+color:#a7b0c9;
+}
+
+.project a{
+color:#8aa2ff;
+text-decoration:none;
+font-weight:600;
+}
+
 </style>
 </head>
 
@@ -24,52 +134,67 @@ h2{margin-top:40px}
 <div class="container">
 
 <div class="hero">
+
 <div>
-<h1>Senior Android Engineer</h1>
-<h3>Avinash Saini</h3>
-<p>7+ years experience building scalable Android apps,
-focused on architecture, reliability, and performance.</p>
-<a class="button" href="https://www.linkedin.com/in/annanthavinash/">LinkedIn</a>
-</div>
-<img src="https://picsum.photos/400/400">
+
+<h1>Avinash Saini</h1>
+<div class="subtitle">Senior Android Engineer</div>
+
+<p>
+Senior Android engineer with 7+ years delivering scalable mobile systems 
+across fintech and consumer platforms. Specialized in Kotlin, Compose, 
+realtime architectures, and engineering reliability. Passionate about 
+clean architecture, performance optimization, and building sustainable 
+mobile platforms.
+</p>
+
+<a class="button" href="https://www.linkedin.com/in/annanthavinash/">
+LinkedIn
+</a>
+
 </div>
 
-<h2>About Me</h2>
+<img src="https://picsum.photos/400">
+
+</div>
+
+
+<h2>About</h2>
 <div class="card">
-Senior Android engineer delivering end-to-end mobile systems.
-Strong focus on scalable architecture, CI/CD, Compose,
-and engineering quality. Currently working at Backbase.
+Currently working at Backbase, building enterprise-grade Android solutions.  
+Previously led major mobile initiatives at MyTeam11 delivering production apps 
+serving large-scale user bases. Strong believer in long-term maintainable 
+architecture, automation pipelines, and developer productivity.
 </div>
 
-<div class="stats">
-<div><b>7+</b><br>Years Experience</div>
-<div><b>3+</b><br>Companies</div>
-<div><b>Multiple</b><br>Production Apps</div>
-</div>
 
 <h2>Core Skills</h2>
-<div class="grid">
-<div class="card">Kotlin + Coroutines</div>
-<div class="card">Jetpack Compose</div>
-<div class="card">Android Architecture</div>
-<div class="card">CI/CD</div>
-<div class="card">Unit Testing</div>
-<div class="card">Compose Multiplatform</div>
+
+<div class="skills">
+
+<div class="skill">Kotlin</div>
+<div class="skill">Coroutines & Flow</div>
+<div class="skill">Jetpack Compose</div>
+<div class="skill">Android Architecture</div>
+<div class="skill">Realtime Systems</div>
+<div class="skill">CI/CD Pipelines</div>
+<div class="skill">Unit Testing</div>
+<div class="skill">Performance Optimization</div>
+<div class="skill">Compose Multiplatform</div>
+
 </div>
 
 
-<!-- AUTO GITHUB PROJECTS -->
-
-<h2>GitHub Projects</h2>
+<h2>Selected GitHub Projects</h2>
 <div id="repos" class="grid"></div>
 
 
 <h2>Contact</h2>
+
 <div class="card">
-Email: paptwanavinash@gmail.com<br><br>
-Phone: 9680236633<br><br>
-LinkedIn:<br>
-<a href="https://www.linkedin.com/in/annanthavinash/">annanthavinash</a>
+Email: paptwanavinash@gmail.com <br><br>
+Phone: 9680236633 <br><br>
+<a href="https://github.com/AnnanthAvinash">GitHub</a>
 </div>
 
 </div>
@@ -79,25 +204,16 @@ LinkedIn:<br>
 
 async function loadRepos(){
 
-// STEP 1: get repo list
-let res = await fetch(
-"https://api.github.com/users/AnnanthAvinash/repos?per_page=100"
-);
-
+let res = await fetch("https://api.github.com/users/AnnanthAvinash/repos?per_page=100");
 let repos = await res.json();
 
 let html="";
 
-// STEP 2: check topics for each repo
 for(let repo of repos){
 
 let topicRes = await fetch(
 `https://api.github.com/repos/AnnanthAvinash/${repo.name}/topics`,
-{
-headers:{
-"Accept":"application/vnd.github.mercy-preview+json"
-}
-}
+{headers:{"Accept":"application/vnd.github.mercy-preview+json"}}
 );
 
 let topicData = await topicRes.json();
@@ -108,8 +224,8 @@ html+=`
 <div class="card project">
 <img src="https://picsum.photos/seed/${repo.name}/500/300">
 <h3>${repo.name}</h3>
-<p>${repo.description ?? "Android project repository"}</p>
-<a href="${repo.html_url}" target="_blank">View on GitHub</a>
+<p>${repo.description ?? "Android project"}</p>
+<a href="${repo.html_url}" target="_blank">View on GitHub →</a>
 </div>
 `;
 
@@ -124,10 +240,6 @@ document.getElementById("repos").innerHTML=html;
 loadRepos();
 
 </script>
-
-
-
-
 
 </body>
 </html>
