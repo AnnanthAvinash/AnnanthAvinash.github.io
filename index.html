@@ -85,7 +85,11 @@ for(let page=1;page<=5;page++){
 
 let r=await fetch(
 `https://api.github.com/users/AnnanthAvinash/repos?per_page=100&page=${page}`,
-{ headers: { "Accept": "application/vnd.github+json" } }
+{
+headers:{
+"Accept":"application/vnd.github.mercy-preview+json"
+}
+}
 );
 
 let d=await r.json();
@@ -118,6 +122,7 @@ document.getElementById("repos").innerHTML=html;
 loadRepos();
 
 </script>
+
 
 
 
