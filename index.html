@@ -77,15 +77,27 @@ LinkedIn:<br>
 
 <script>
 
-fetch("https://api.github.com/users/AnnanthAvinash/repos?sort=updated")
-.then(r=>r.json())
-.then(repos=>{
+async function loadRepos(){
+
+let all=[];
+
+for(let page=1;page<=5;page++){
+
+let r=await fetch(
+`https://api.github.com/users/AnnanthAvinash/repos?per_page=100&page=${page}`,
+{ headers: { "Accept": "application/vnd.github+json" } }
+);
+
+let d=await r.json();
+if(!d.length) break;
+all=all.concat(d);
+}
 
 let html="";
 
-repos
-.filter(r=>!r.fork)     // skip forks
-.slice(0,12)            // show max 12 repos
+all
+.filter(repo => repo.topics && repo.topics.includes("portfolio"))
+.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at))
 .forEach(repo=>{
 
 html+=`
@@ -101,9 +113,13 @@ html+=`
 
 document.getElementById("repos").innerHTML=html;
 
-});
+}
+
+loadRepos();
 
 </script>
+
+
 
 </body>
 </html>
