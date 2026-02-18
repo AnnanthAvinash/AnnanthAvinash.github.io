@@ -96,7 +96,7 @@ all=all.concat(d);
 let html="";
 
 all
-.filter(repo => repo.topics && repo.topics.includes("portfolio"))
+.filter(repo => repo.topics && repo.topics.includes("portfolio-website"))
 .sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at))
 .forEach(repo=>{
 
