@@ -232,31 +232,36 @@ Email: paptwanavinash@gmail.com<br><br>
 /* ===== FADE ANIMATION ===== */
 
 const obs=new IntersectionObserver(e=>{
-e.forEach(x=>{ if(x.isIntersecting) x.target.classList.add("show"); });
+  e.forEach(x=>{ if(x.isIntersecting) x.target.classList.add("show"); });
 });
-
 document.querySelectorAll(".fade").forEach(el=>obs.observe(el));
 
 
-/* ===== GITHUB FETCH ===== */
+/* ===== GITHUB FETCH WITH TOPIC FILTER ===== */
 
 async function loadRepos(){
 
-let res = await fetch("https://api.github.com/users/AnnanthAvinash/repos?per_page=100");
+try{
+
+// IMPORTANT: this Accept header makes GitHub include topics in repo response
+let res = await fetch(
+"https://api.github.com/users/AnnanthAvinash/repos?per_page=100",
+{
+headers:{
+"Accept":"application/vnd.github+json"
+}
+});
+
 let repos = await res.json();
 
 let html="";
 
-for(let repo of repos){
-
-let topicRes = await fetch(
-`https://api.github.com/repos/AnnanthAvinash/${repo.name}/topics`,
-{headers:{"Accept":"application/vnd.github.mercy-preview+json"}}
-);
-
-let topicData = await topicRes.json();
-
-if(topicData.names && topicData.names.includes("portfolio-website")){
+repos
+.filter(repo =>
+   repo.topics && repo.topics.includes("portfolio-website")
+)
+.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at))
+.forEach(repo=>{
 
 html+=`
 <div class="card project fade">
@@ -267,17 +272,24 @@ html+=`
 </div>
 `;
 
-}
+});
+
+document.getElementById("repos").innerHTML =
+html || "<p>No projects found with topic 'portfolio-wishlist'.</p>";
+
+}catch(err){
+
+document.getElementById("repos").innerHTML =
+"<p>GitHub loading failed.</p>";
 
 }
-
-document.getElementById("repos").innerHTML=html;
 
 }
 
 loadRepos();
 
 </script>
+
 
 </body>
 </html>
