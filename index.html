@@ -243,23 +243,14 @@ async function loadRepos(){
 
 try{
 
-// IMPORTANT: this Accept header makes GitHub include topics in repo response
-let res = await fetch(
-"https://api.github.com/users/AnnanthAvinash/repos?per_page=100",
-{
-headers:{
-"Accept":"application/vnd.github+json"
-}
-});
-
+let res = await fetch("https://api.github.com/users/AnnanthAvinash/repos?per_page=100");
 let repos = await res.json();
 
 let html="";
 
 repos
-.filter(repo =>
-   repo.topics && repo.topics.includes("portfolio-website")
-)
+// optional: remove forks (delete this line if you want forks too)
+.filter(repo => !repo.fork)
 .sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at))
 .forEach(repo=>{
 
@@ -267,7 +258,7 @@ html+=`
 <div class="card project fade">
 <img src="https://picsum.photos/seed/${repo.name}/500/300">
 <h3>${repo.name}</h3>
-<p>${repo.description ?? "Android project"}</p>
+<p>${repo.description ?? "No description"}</p>
 <a href="${repo.html_url}" target="_blank">View Repo →</a>
 </div>
 `;
@@ -275,16 +266,17 @@ html+=`
 });
 
 document.getElementById("repos").innerHTML =
-html || "<p>No projects found with topic 'portfolio-wishlist'.</p>";
+html || "<p>No public repos found</p>";
 
 }catch(err){
 
 document.getElementById("repos").innerHTML =
-"<p>GitHub loading failed.</p>";
+"<p>GitHub loading failed</p>";
 
 }
 
 }
+
 
 loadRepos();
 
